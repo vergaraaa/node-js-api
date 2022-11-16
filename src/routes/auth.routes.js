@@ -5,9 +5,11 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
 
-const { createUser, loginUser, renewToken, getUsers } = require('../controllers/auth.controller');
+const { createUser, loginUser, renewToken, getUsers, uploadProfilePic } = require('../controllers/auth.controller');
 const { validateFields } = require('../middlewares/validate-fields');
 const { validateJWT } = require('../middlewares/validate-jwt');
+
+const { upload } = require('../helpers/multer.js');
 
 const router = Router();
 
@@ -29,5 +31,7 @@ router.post('/login', [
 router.get('/renew', validateJWT, renewToken);
 
 router.get('/users', getUsers);
+
+router.post('/profile-pic', upload.single('image'), uploadProfilePic);
 
 module.exports = router;
