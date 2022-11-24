@@ -34,4 +34,12 @@ router.get('/users', getUsers);
 
 router.post('/profile-pic', upload.single('image'), uploadProfilePic);
 
+// router.post('/profile-pic', upload.fields([
+//     {
+//         name: 'edgar', maxCount: 1
+//     }, {
+//         name: 'images', maxCount: 5
+//     }
+// ]), uploadProfilePic);
+
 module.exports = router;

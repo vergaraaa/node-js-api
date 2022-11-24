@@ -104,8 +104,7 @@ authCtrl.renewToken = async (req = request, res = response) => {
 }
 
 authCtrl.uploadProfilePic = async (req = request, res = response) => {
-    const file = req.file;
-    console.log(file);
+    console.log(req.files);
     res.send('image route')
 }
 
